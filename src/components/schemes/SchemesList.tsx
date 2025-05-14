@@ -106,7 +106,7 @@ const SchemesList = ({ schemes }: SchemesListProps) => {
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Categories</SelectItem>
+                <SelectItem value="all-categories">All Categories</SelectItem>
                 {categories.map((category) => (
                   <SelectItem key={category} value={category}>
                     {category}
@@ -124,7 +124,7 @@ const SchemesList = ({ schemes }: SchemesListProps) => {
                 <SelectValue placeholder="All Statuses" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Statuses</SelectItem>
+                <SelectItem value="all-statuses">All Statuses</SelectItem>
                 <SelectItem value="eligible">Eligible</SelectItem>
                 <SelectItem value="applied">Applied</SelectItem>
                 <SelectItem value="pending">Pending</SelectItem>
