@@ -105,30 +105,14 @@ const SchemeCard = ({ scheme, onApply, onViewDetails }: SchemeCardProps) => {
       </CardContent>
       
       <CardFooter className="border-t pt-4 bg-gray-50">
-        <div className="flex justify-between w-full">
-          <Button
-            variant="outline"
-            size="sm"
-            className="text-xs"
-            onClick={() => onViewDetails(scheme.id)}
-          >
-            View Details
-          </Button>
-          
+        <div className="flex justify-center w-full">
           {scheme.status === 'eligible' && (
             <Button
-              size="sm"
               className="bg-gov-blue hover:bg-blue-700 text-xs flex items-center"
               onClick={() => onApply(scheme.id)}
             >
               Apply Now
               <ChevronRight className="h-3 w-3 ml-1" />
-            </Button>
-          )}
-          
-          {scheme.status === 'applied' && (
-            <Button size="sm" variant="outline" className="text-xs">
-              Track Application
             </Button>
           )}
         </div>

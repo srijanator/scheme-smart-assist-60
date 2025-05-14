@@ -26,15 +26,6 @@ const NavBar = () => {
             <Link to="/" className="text-gray-700 hover:text-gov-blue px-3 py-2 rounded-md text-sm font-medium">
               Home
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-gov-blue px-3 py-2 rounded-md text-sm font-medium">
-              About
-            </Link>
-            <Link to="/schemes" className="text-gray-700 hover:text-gov-blue px-3 py-2 rounded-md text-sm font-medium">
-              Schemes
-            </Link>
-            <Link to="/contact" className="text-gray-700 hover:text-gov-blue px-3 py-2 rounded-md text-sm font-medium">
-              Contact
-            </Link>
             <div className="ml-4 flex items-center space-x-2">
               <Button variant="outline" asChild>
                 <Link to="/login">Login</Link>
@@ -62,15 +53,6 @@ const NavBar = () => {
           <div className="pt-2 pb-3 space-y-1">
             <Link to="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
               Home
-            </Link>
-            <Link to="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
-              About
-            </Link>
-            <Link to="/schemes" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
-              Schemes
-            </Link>
-            <Link to="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
-              Contact
             </Link>
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200">

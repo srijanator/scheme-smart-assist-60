@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import SchemeCard from './SchemeCard';
-import { Search, Filter } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface Scheme {
@@ -33,8 +33,8 @@ interface SchemesListProps {
 const SchemesList = ({ schemes }: SchemesListProps) => {
   const { toast } = useToast();
   const [searchQuery, setSearchQuery] = useState('');
-  const [categoryFilter, setCategoryFilter] = useState('');
-  const [statusFilter, setStatusFilter] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('all-categories');
+  const [statusFilter, setStatusFilter] = useState('all-statuses');
   
   // Handle scheme application
   const handleApply = (schemeId: string) => {
@@ -55,8 +55,7 @@ const SchemesList = ({ schemes }: SchemesListProps) => {
   
   // Handle scheme details view
   const handleViewDetails = (schemeId: string) => {
-    // In a real app, this would navigate to a scheme details page
-    console.log("View details for scheme:", schemeId);
+    // This function is not used in the simplified UI
   };
   
   // Filter schemes based on search query and filters
@@ -68,14 +67,14 @@ const SchemesList = ({ schemes }: SchemesListProps) => {
       : true;
     
     // Category filter
-    const matchesCategory = categoryFilter 
-      ? scheme.category === categoryFilter
-      : true;
+    const matchesCategory = categoryFilter === 'all-categories'
+      ? true
+      : scheme.category === categoryFilter;
     
     // Status filter
-    const matchesStatus = statusFilter 
-      ? scheme.status === statusFilter
-      : true;
+    const matchesStatus = statusFilter === 'all-statuses'
+      ? true
+      : scheme.status === statusFilter;
     
     return matchesSearch && matchesCategory && matchesStatus;
   });
@@ -139,21 +138,7 @@ const SchemesList = ({ schemes }: SchemesListProps) => {
       <div className="flex items-center justify-between mb-4">
         <div className="text-sm text-gray-600">
           Found <span className="font-medium">{filteredSchemes.length}</span> schemes
-          {searchQuery || categoryFilter || statusFilter ? ' matching your filters' : ''}
-        </div>
-        <div className="flex items-center text-sm text-gray-600">
-          <Filter className="h-4 w-4 mr-1" />
-          <span>Sort by: </span>
-          <Select defaultValue="eligibility">
-            <SelectTrigger className="border-0 text-sm ml-1 p-0 h-auto w-auto">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="eligibility">Eligibility Score</SelectItem>
-              <SelectItem value="az">Name: A-Z</SelectItem>
-              <SelectItem value="za">Name: Z-A</SelectItem>
-            </SelectContent>
-          </Select>
+          {searchQuery || categoryFilter !== 'all-categories' || statusFilter !== 'all-statuses' ? ' matching your filters' : ''}
         </div>
       </div>
       
